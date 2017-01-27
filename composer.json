@@ -14,7 +14,8 @@
     "symfony/config": "*",
     "php-di/php-di": "^5.4",
     "doctrine/cache": "^1.6",
-    "league/container": "^2.2"
+    "league/container": "^2.2",
+    "zendframework/zend-di": "^2.6"
   },
   "autoload": {
     "psr-4": {

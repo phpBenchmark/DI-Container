@@ -4,15 +4,14 @@ Containers currently tested are:
 - Symfony
 - PHP-DI
 - Leage
+- Zend
 
 In plans:
 - Aura
 - Auryn
 - Dice
 - Njasm
-- Phalcon
 - Pimple
-- Zend\Di
 - Zend\Servicemanager
 - etc
 
