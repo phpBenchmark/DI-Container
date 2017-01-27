@@ -17,7 +17,7 @@ cliPrint("Starting benchmarks", true);
 $html = '';
 
 //Number of times to run each test before taking an average 
-$runs = 10;
+$runs = 1;
 
 cliPrint('Running each test ' . $runs . ' times');
 
@@ -55,9 +55,24 @@ function runScript($file, $args = [])
     return $output;
 }
 
+$version = phpversion();
 //Some very basic styling
-$html .= '<style>td,th {padding: 5px; border: 1px solid #aaa; text-align: right;}</style>';
-
+$html .= "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css'>";
+$html .= <<<HEAD
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        PHP DI Containers Benchmarks
+      </h1>
+      <h2 class="subtitle">
+        PHP {$version}
+      </h2>
+    </div>
+  </div>
+</section>
+HEAD;
+$html .= '<div class="section"><div class=".container">';
 $testdescriptions = [
     1 => 'Create single object (incl autoload time)',
     2 => 'Create single object (excl autoload time)',
@@ -67,8 +82,8 @@ $testdescriptions = [
 ];
 
 for ($test = 1; $test <= $numTests; $test++) {
-    $html .= '<h2>Test ' . $test . ' - ' . $testdescriptions[$test] . '</h2>';
-    $html .= '<table>';
+    $html .= '<h2 class="title is-2">Test ' . $test . ' - ' . $testdescriptions[$test] . '</h2>';
+    $html .= '<table class="table is-striped">';
     cliPrint("\nStarting test: " . $test);
 
     $containerInfo = [];
@@ -115,6 +130,21 @@ for ($test = 1; $test <= $numTests; $test++) {
     }
     $html .= '</table>';
 }
-
+$today = date('H:i:s m.d.y');
+$html .= '</div></div>';
+$html .= <<<HTML
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong><a href='https://github.com/phpBenchmark/DI-Container'>phpBenchmark/DI-Container</a></strong>
+      </p>
+      <p>
+        Generated {$today}
+      </p>
+    </div>
+  </div>
+</footer>
+HTML;
 if (!$isCli) echo $html;
 else file_put_contents('test-results.html', $html);
