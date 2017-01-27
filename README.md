@@ -3,12 +3,12 @@ Containers currently tested are:
 - Laravel
 - Symfony
 - PHP-DI
+- Leage
 
 In plans:
 - Aura
 - Auryn
 - Dice
-- Leage
 - Njasm
 - Phalcon
 - Pimple

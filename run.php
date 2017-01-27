@@ -17,11 +17,12 @@ cliPrint("Starting benchmarks", true);
 $html = '';
 
 //Number of times to run each test before taking an average 
-$runs = 100;
+$runs = 50;
+
 cliPrint('Running each test ' . $runs . ' times');
 
 //Containers to be tested (dir names)
-$containers = ['Laravel', 'Symfony', 'PHP-DI'];
+$containers = ['Laravel', 'Symfony', 'PHP-DI', 'League'];
 
 //The number of tests
 $numTests = 5;
