@@ -26,8 +26,6 @@ class ProjectServiceContainer extends Container
         $this->services = array();
         $this->methodMap = array(
             'tests\\a' => 'getTests_AService',
-            'tests\\b' => 'getTests_BService',
-            'tests\\c' => 'getTests_CService',
         );
 
         $this->aliases = array();
@@ -60,31 +58,5 @@ class ProjectServiceContainer extends Container
     protected function getTests_AService()
     {
         return $this->services['tests\a'] = new \Tests\A();
-    }
-
-    /**
-     * Gets the 'tests\b' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Tests\B A Tests\B instance
-     */
-    protected function getTests_BService()
-    {
-        return $this->services['tests\b'] = new \Tests\B($this->get('tests\a'));
-    }
-
-    /**
-     * Gets the 'tests\c' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Tests\C A Tests\C instance
-     */
-    protected function getTests_CService()
-    {
-        return $this->services['tests\c'] = new \Tests\C($this->get('tests\b'));
     }
 }

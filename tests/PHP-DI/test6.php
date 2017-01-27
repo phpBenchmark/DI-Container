@@ -10,18 +10,32 @@ $builder->addDefinitions([
         ->scope(Scope::PROTOTYPE()),
     'Tests\C' => \DI\object()
         ->scope(Scope::PROTOTYPE()),
+    'Tests\D' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\E' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\F' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\G' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\H' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\I' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\J' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
 ]);
 $builder->setDefinitionCache(new \Doctrine\Common\Cache\ArrayCache());
 $container = $builder->build();
 
 //trigger autoloader
-$j = $container->get('Tests\C');
+$j = $container->get('Tests\J');
 unset ($j);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $j = $container->get('Tests\C');
+    $j = $container->get('Tests\J');
 
 }
 

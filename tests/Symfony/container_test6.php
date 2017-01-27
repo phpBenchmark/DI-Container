@@ -32,6 +32,9 @@ class ProjectServiceContainer extends Container
             'tests\\e' => 'getTests_EService',
             'tests\\f' => 'getTests_FService',
             'tests\\g' => 'getTests_GService',
+            'tests\\h' => 'getTests_HService',
+            'tests\\i' => 'getTests_IService',
+            'tests\\j' => 'getTests_JService',
         );
 
         $this->aliases = array();
@@ -142,5 +145,44 @@ class ProjectServiceContainer extends Container
     protected function getTests_GService()
     {
         return $this->services['tests\g'] = new \Tests\G($this->get('tests\f'));
+    }
+
+    /**
+     * Gets the 'tests\h' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Tests\H A Tests\H instance
+     */
+    protected function getTests_HService()
+    {
+        return $this->services['tests\h'] = new \Tests\H($this->get('tests\g'));
+    }
+
+    /**
+     * Gets the 'tests\i' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Tests\I A Tests\I instance
+     */
+    protected function getTests_IService()
+    {
+        return $this->services['tests\i'] = new \Tests\I($this->get('tests\h'));
+    }
+
+    /**
+     * Gets the 'tests\j' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Tests\J A Tests\J instance
+     */
+    protected function getTests_JService()
+    {
+        return $this->services['tests\j'] = new \Tests\J($this->get('tests\i'));
     }
 }

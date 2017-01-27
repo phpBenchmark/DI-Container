@@ -2,18 +2,16 @@
 require_once __DIR__ . '/../bootstrap.php';
 
 $container = new League\Container\Container;
-$container->add('Tests\A');
-$container->add('Tests\B')->withArgument('Tests\A');
-$container->add('Tests\C')->withArgument('Tests\B');
+$container->share('A');
 
-//Trigger all autoloaders
-$a = $container->get('Tests\C');
+//trigger all autoloaders
+$a = $container->get('A');
 unset($a);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->get('Tests\C');
+    $a = $container->get('A');
 }
 
 $t2 = microtime(true);

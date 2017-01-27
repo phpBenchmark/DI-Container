@@ -1,7 +1,7 @@
 <?php
 //You shouldn't have max_exectution_time set high enough to run these benchmarks 
 ini_set('max_execution_time', 90000);
-opcache_reset();
+//opcache_reset();
 $isCli = php_sapi_name() == 'cli';
 function cliPrint($text, $newLine = true)
 {
@@ -32,7 +32,7 @@ $containers = [
 ];
 
 //The number of tests
-$numTests = 5;
+$numTests = 8;
 cliPrint('Running tests 1 - ' . $numTests);
 
 function average($array, $dp = 4)
@@ -80,16 +80,19 @@ $html .= <<<HEAD
 </section>
 HEAD;
 $html .= '<div class="section"><div class=".container">';
-$testdescriptions = [
+$descriptions = [
     1 => 'Create single object (incl autoload time)',
     2 => 'Create single object (excl autoload time)',
-    3 => 'Create deep object graph',
-    4 => 'Fetch the same instance (service) from the container repeatedly',
-    5 => 'Inject a service into a new object repeatedly'
+    3 => 'Create deep object graph 3 level',
+    4 => 'Create deep object graph 5 level',
+    5 => 'Create deep object graph 7 level',
+    6 => 'Create deep object graph 10 level',
+    7 => 'Fetch the same instance (service) from the container repeatedly',
+    8 => 'Inject a service into a new object repeatedly'
 ];
 
 for ($test = 1; $test <= $numTests; $test++) {
-    $html .= '<h2 class="title is-2">Test ' . $test . ' - ' . $testdescriptions[$test] . '</h2>';
+    $html .= '<h2 class="title is-2">Test ' . $test . ' - ' . $descriptions[$test] . '</h2>';
     $html .= '<table class="table is-striped">';
     cliPrint("\nStarting test: " . $test);
 

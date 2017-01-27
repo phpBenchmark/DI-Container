@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../bootstrap.php';
 
-$file = __DIR__ . '/container_test5.php';
+$file = __DIR__ . '/container_test6.php';
 
 if (file_exists($file)) {
     require_once $file;
@@ -17,6 +17,9 @@ if (file_exists($file)) {
         'Tests\E',
         'Tests\F',
         'Tests\G',
+        'Tests\H',
+        'Tests\I',
+        'Tests\J'
     ];
     for ($i = 0; $i < count($classes); $i++) {
         if (isset($classes[$i - 1])) {
@@ -34,13 +37,13 @@ if (file_exists($file)) {
 }
 
 //Trigger autoloader
-$a = $container->get('Tests\G');
+$a = $container->get('Tests\J');
 unset($a);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->get('Tests\G');
+    $a = $container->get('Tests\J');
 }
 $t2 = microtime(true);
 
@@ -49,5 +52,4 @@ $results = [
     'files' => count(get_included_files()),
     'memory' => memory_get_peak_usage() / 1024 / 1024
 ];
-
 echo json_encode($results);

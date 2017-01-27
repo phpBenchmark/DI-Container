@@ -1,16 +1,18 @@
 <?php
 require_once __DIR__ . '/../bootstrap.php';
-
 $di = new Zend\Di\Di;
 
 //trigger autoloader
-$a = $di->get('Tests\A');
-unset($a);
+$a = $di->newinstance('Tests\E');
+unset ($a);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $di->get('Tests\A');
+    //This is required otherwise ->newinstance() only creates a new instance of the top level of the code
+    //If there's a better way to configure this let me know
+    $di = new Zend\Di\Di;
+    $a = $di->newinstance('Tests\E');
 }
 
 $t2 = microtime(true);

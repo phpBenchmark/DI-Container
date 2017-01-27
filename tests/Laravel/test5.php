@@ -2,16 +2,14 @@
 require_once __DIR__ . '/../bootstrap.php';
 
 $container = new \Illuminate\Container\Container;
-$container->bind('Tests\A', 'Tests\A', true);
 
-//Trigger autoloader
-$a = $container->make('Tests\B');
-unset($a);
+//trigger autoloader
+$j = $container->make('Tests\G');
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $b = $container->make('Tests\B');
+    $j = $container->make('Tests\G');
 }
 
 $t2 = microtime(true);

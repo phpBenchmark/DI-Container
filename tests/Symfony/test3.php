@@ -13,13 +13,6 @@ if (file_exists($file)) {
         'Tests\A',
         'Tests\B',
         'Tests\C',
-        'Tests\D',
-        'Tests\E',
-        'Tests\F',
-        'Tests\G',
-        'Tests\H',
-        'Tests\I',
-        'Tests\J'
     ];
     for ($i = 0; $i < count($classes); $i++) {
         if (isset($classes[$i - 1])) {
@@ -37,13 +30,13 @@ if (file_exists($file)) {
 }
 
 //Trigger autoloader
-$a = $container->get('Tests\J');
+$a = $container->get('Tests\C');
 unset($a);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->get('Tests\J');
+    $a = $container->get('Tests\C');
 }
 $t2 = microtime(true);
 

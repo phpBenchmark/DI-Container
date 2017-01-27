@@ -1,22 +1,36 @@
 <?php
+use DI\Scope;
 require_once __DIR__ . '/../bootstrap.php';
 
 $builder = new \DI\ContainerBuilder();
 $builder->addDefinitions([
+    'Tests\A' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
     'Tests\B' => \DI\object()
-        ->scope(\DI\Scope::PROTOTYPE())
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\C' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\D' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\E' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\F' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
+    'Tests\G' => \DI\object()
+        ->scope(Scope::PROTOTYPE()),
 ]);
 $builder->setDefinitionCache(new \Doctrine\Common\Cache\ArrayCache());
 $container = $builder->build();
 
 //trigger autoloader
-$a = $container->get('Tests\B');
-unset ($a);
+$j = $container->get('Tests\G');
+unset ($j);
 
 $t1 = microtime(true);
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->get('Tests\B');
+    $j = $container->get('Tests\G');
+
 }
 
 $t2 = microtime(true);
