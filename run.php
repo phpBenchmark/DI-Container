@@ -21,7 +21,7 @@ $runs = 100;
 cliPrint('Running each test ' . $runs . ' times');
 
 //Containers to be tested (dir names)
-$containers = ['Laravel', 'Symfony'];
+$containers = ['Laravel', 'Symfony', 'PHP-DI'];
 
 //The number of tests
 $numTests = 5;

@@ -2,6 +2,7 @@
 Containers currently tested are:
 - Laravel
 - Symfony
+- PHP-DI
 
 In plans:
 - Aura
@@ -10,7 +11,6 @@ In plans:
 - Leage
 - Njasm
 - Phalcon
-- PHP-DI
 - Pimple
 - Zend\Di
 - Zend\Servicemanager
