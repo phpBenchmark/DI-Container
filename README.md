@@ -1,9 +1,10 @@
 # DI Container Benchmarks
 Containers currently tested are:
 - Laravel
-- Symfony
-- PHP-DI
 - League
+- PHP-DI
+- Pimple
+- Symfony
 - Zend
 
 In plans:
@@ -11,7 +12,6 @@ In plans:
 - Auryn
 - Dice
 - Njasm
-- Pimple
 - Zend\Servicemanager
 - etc
 
