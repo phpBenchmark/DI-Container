@@ -3,7 +3,7 @@ Containers currently tested are:
 - Laravel
 - Symfony
 - PHP-DI
-- Leage
+- League
 - Zend
 
 In plans:
