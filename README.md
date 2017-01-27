@@ -20,7 +20,7 @@ In plans:
 
 1) Clone this repo and Run `composer install`
 
-2) Run `php tests/run.php` (These will take some time!)
+2) Run `php run.php` (These will take some time!)
 
 3) Open the files `test-results.html`
 
