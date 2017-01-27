@@ -1,0 +1,26 @@
+{
+    "name": "avito-php/dependency-injection-benchmarks",
+    "description": "Benchmarks of PHP DI Contaners",
+    "keywords": ["Dependency injection container benchmarks", "ioc benchmarks", "Dependency injection container performance", "DI"],
+    "require": {
+        "php": ">=7.0.0",
+        "level-2/Dice": "*",
+        "rdlowrey/auryn": "*",
+        "pimple/pimple": "*",
+        "aura/di": "*",
+        "illuminate/container": "*",
+        "nette/di": "*",
+        "njasm/container": "*",
+        "league/container": "*",
+        "php-di/php-di": "*",
+        "doctrine/cache": "*",
+        "symfony/dependency-injection": "*",
+        "symfony/config": "*",
+        "symfony/proxy-manager-bridge": "*",
+        "zendframework/zend-di": "*",
+        "zendframework/zend-servicemanager": "*"
+    },
+    "autoload": {
+        "psr-4": {"Tests\\": "tests/"}
+    }
+}
