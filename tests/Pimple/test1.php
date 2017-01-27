@@ -2,10 +2,14 @@
 require_once __DIR__ . '/../bootstrap.php';
 
 $t1 = microtime(true);
-$container = new \Illuminate\Container\Container;
+
+$container = new \Pimple\Container();
+$container['Tests\A'] = $container->factory(function ($c) {
+    return new Tests\A();
+});
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->make('Tests\A');
+    $j = $container['Tests\A'];
 }
 
 $t2 = microtime(true);

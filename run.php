@@ -22,7 +22,14 @@ $runs = 10;
 cliPrint('Running each test ' . $runs . ' times');
 
 //Containers to be tested (dir names)
-$containers = ['Laravel', 'Symfony', 'PHP-DI', 'League'];
+$containers = [
+    'Laravel',
+    'League',
+    'PHP-DI',
+    'Pimple',
+    'Symfony',
+    'Zend',
+];
 
 //The number of tests
 $numTests = 5;

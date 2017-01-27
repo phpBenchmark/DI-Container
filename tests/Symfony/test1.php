@@ -31,8 +31,4 @@ $results = [
     'memory' => memory_get_peak_usage() / 1024 / 1024
 ];
 
-if ($a->isReal()) {
-    echo json_encode($results);
-} else {
-    throw new \Tests\NotRealException();
-}
+echo json_encode($results);

@@ -1,11 +1,19 @@
 <?php
 require_once __DIR__ . '/../bootstrap.php';
 
+$container = new \Pimple\Container();
+$container['Tests\A'] = $container->factory(function ($c) {
+    return new Tests\A();
+});
+
+//trigger autoloaders
+$a = $container['Tests\A'];
+unset($a);
+
 $t1 = microtime(true);
-$container = new \Illuminate\Container\Container;
 
 for ($i = 0; $i < 10000; $i++) {
-    $a = $container->make('Tests\A');
+    $j = $container['Tests\A'];
 }
 
 $t2 = microtime(true);
