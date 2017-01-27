@@ -17,7 +17,7 @@ cliPrint("Starting benchmarks", true);
 $html = '';
 
 //Number of times to run each test before taking an average 
-$runs = 1;
+$runs = 10;
 
 cliPrint('Running each test ' . $runs . ' times');
 
