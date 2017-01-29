@@ -60,7 +60,7 @@ This is a test of how quickly the same object (service) can be repeatedly reques
 
 Test repeatedly has the container construct an object and inject a service
 
-### Test 6
+### Test 9
 
 Not implemented yet.
 
