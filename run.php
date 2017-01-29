@@ -150,7 +150,7 @@ $html .= <<<HTML
         <strong><a href='https://github.com/phpBenchmark/DI-Container'>phpBenchmark/DI-Container</a></strong>
       </p>
       <p>
-        Generated {$today}
+        Generated {$today} with {$runs} runs of each test.
       </p>
     </div>
   </div>
